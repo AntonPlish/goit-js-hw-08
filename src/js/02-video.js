@@ -15,8 +15,7 @@ player.getDuration().then(function(duration) {
     duration = Object.values(getArray);
 
     player.setCurrentTime(duration[0]).then(function (seconds) {
-        // seconds = player.getDuration();
-        // console.log('Continue from "seconds":', seconds);
+        console.log('Continue from "seconds":', seconds);
 }).catch(function(error) {
     switch (error.name) {
         case 'RangeError':
