@@ -17,11 +17,11 @@ form.addEventListener('input', throttle(onFormInput, 500));
 
 // Варіант-1 як зберегти набрані поля:
 
-// if (localStorage.getItem(STORAGE_KEY)) {
-//     formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-//     form.querySelector('[name="email"]').value = formData.email;
-//     form.querySelector('[name="message"]').value = formData.message;
-// };
+if (localStorage.getItem(STORAGE_KEY)) {
+    formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    form.querySelector('[name="email"]').value = formData.email;
+    form.querySelector('[name="message"]').value = formData.message;
+};
 
 
 function onFormInput(event) {
@@ -29,7 +29,7 @@ function onFormInput(event) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 };
 
-populateInput()
+// populateInput()
 // populateTextarea();
 
 function onFormSubmit(event) {
@@ -56,22 +56,22 @@ function onFormSubmit(event) {
 
 // Варіант-2 як зберегти набрані поля:
 
-function populateInput() {
+// function populateInput() {
     
-    if (localStorage.getItem(STORAGE_KEY)) {
-        const parseValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        const formElements = form.elements;
-        const valueElementStorage = Object.values(parseValue);
-        const keyElementStorage = Object.keys(parseValue);
+//     if (localStorage.getItem(STORAGE_KEY)) {
+//         const parseValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
+//         const formElements = form.elements;
+//         const valueElementStorage = Object.values(parseValue);
+//         const keyElementStorage = Object.keys(parseValue);
 
-        for (let i = 0; i < keyElementStorage.length; i += 1) {
-            for (let i = 0; i < valueElementStorage.length; i += 1) {
-                for (const formElement of formElements) {
-                    if (formElement['name'] === keyElementStorage[i]) {
-                        formElement['value'] = valueElementStorage[i];
-                    };
-                };
-            };
-        };
-    };
-};
+//         for (let i = 0; i < keyElementStorage.length; i += 1) {
+//             for (let i = 0; i < valueElementStorage.length; i += 1) {
+//                 for (const formElement of formElements) {
+//                     if (formElement['name'] === keyElementStorage[i]) {
+//                         formElement['value'] = valueElementStorage[i];
+//                     };
+//                 };
+//             };
+//         };
+//     };
+// };
