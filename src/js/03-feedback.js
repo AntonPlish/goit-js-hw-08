@@ -37,6 +37,8 @@ function onFormSubmit(event) {
     console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
     event.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
+    formData.email = '';
+    formData.message = '';
 };
 
 // function onTextareaInput(event) {
